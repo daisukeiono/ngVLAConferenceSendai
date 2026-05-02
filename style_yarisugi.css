@@ -33,7 +33,7 @@ a {
   min-height: 620px;
   position: relative;
   color: #fff;
-  background:"sendai.jpg"
+  background: url("sendai.jpg")
     center / cover no-repeat;
   overflow: hidden;
 }
