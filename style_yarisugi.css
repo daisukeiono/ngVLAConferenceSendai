@@ -33,7 +33,7 @@ a {
   min-height: 620px;
   position: relative;
   color: #fff;
-  background: url("https://raw.githubusercontent.com/daisukeiono/ngVLAConferenceSendai/272e5236b0652fa7bb953421e5971f6601d4c17a/sendai.jpg")
+  background:"sendai.jpg"
     center / cover no-repeat;
   overflow: hidden;
 }
