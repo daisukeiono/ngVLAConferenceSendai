@@ -44,37 +44,36 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* 高さ調整（重要） */
   min-height: 55vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
-/* 少し暗くして文字を見やすく */
+/* registrationではダークオーバーレイを消す */
 #registration-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: 0;
+  content: none;
 }
 
-/* ナビとタイトルを前面に */
+/* ナビとタイトル */
 #registration-hero .nav,
 #registration-hero .subpage-title {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* タイトル位置調整 */
-.subpage-title {
-  margin-top: auto;
-  padding: 2rem 1rem 3rem;
-  text-align: center;
+/* Registration を中央に */
+#registration-hero .subpage-title {
+  width: min(var(--max), calc(100% - 48px));
+  margin: auto auto 0;
+  padding: 34px 0 46px;
+  text-align: left;
   color: white;
+}
+
+#registration-hero .subpage-title h1 {
+  max-width: none;
+  text-align: left;
 }
 
 .hero::before {
