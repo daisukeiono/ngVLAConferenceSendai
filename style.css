@@ -87,7 +87,7 @@ a {
   flex-direction: column;
 }
 
-/* registrationではダークオーバーレイを消す 
+/* registrationではダークオーバーレイを消す
 #venue-hero::before {
   content: none;
 }*/
@@ -116,7 +116,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
