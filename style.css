@@ -116,7 +116,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.22);　　/*この数字を変更すると画像が暗くなる*/
   z-index: 1;
 }
 
