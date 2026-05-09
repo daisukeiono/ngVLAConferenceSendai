@@ -62,22 +62,17 @@ a {
   z-index: 2;
 }
 
-/* REGISTRATIONを左上へ */
 #registration-hero .subpage-title {
-  position: absolute;
-  top: 110px;          /* ナビの下に配置 */
-  left: 0;
-  width: 100%;
-  padding: 0;
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;              /* ← 通常レイアウトに戻す */
+  padding: 34px 0 46px;
+  text-align: left;            /* ← 左寄せ */
+  color: white;
 }
 
-/* 中のテキストをindexと同じ幅に揃える */
 #registration-hero .subpage-title h1 {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-  padding: 34px 0 46px;
+  max-width: 640px;            /* ← indexと同じ挙動に戻す */
   text-align: left;
-  max-width: 640px;
 }
 
 .hero::before {
