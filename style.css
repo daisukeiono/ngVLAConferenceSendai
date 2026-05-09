@@ -38,6 +38,13 @@ a {
   overflow: hidden;
 }
 
+.hero-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: 60% center; /* ← 望遠鏡寄りに調整 */
+} 
+
 .hero::before {
   content: "";
   position: absolute;
