@@ -75,6 +75,43 @@ a {
   text-align: left;
 }
 
+/* program専用ヒーロー */
+#program-hero {
+  background-image: url("herc-a-big.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 55vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* registrationではダークオーバーレイを消す */
+#program-hero::before {
+  content: none;
+}
+
+/* ナビとタイトル */
+#program-hero .nav,
+#program-hero .subpage-title {
+  position: relative;
+  z-index: 2;
+}
+
+#program-hero .subpage-title {
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;              /* ← 通常レイアウトに戻す */
+  padding: 34px 0 46px;
+  text-align: left;            /* ← 左寄せ */
+  color: white;
+}
+
+#program-hero .subpage-title h1 {
+  max-width: 640px;            /* ← indexと同じ挙動に戻す */
+  text-align: left;
+}
+
 /* venue専用ヒーロー */
 #venue-hero {
   background-image: url("sendai_town.jpg");
