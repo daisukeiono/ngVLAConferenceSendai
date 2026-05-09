@@ -62,18 +62,21 @@ a {
   z-index: 2;
 }
 
-/* Registration を中央に */
+/* REGISTRATIONを左上へ */
 #registration-hero .subpage-title {
-  width: min(var(--max), calc(100% - 48px));
-  margin: auto auto 0;
-  padding: 34px 0 46px;
-  text-align: left;
-  color: white;
+  position: absolute;
+  top: 110px;          /* ナビの下に配置 */
+  left: 0;
+  width: 100%;
+  padding: 0;
 }
 
+/* 中のテキストをindexと同じ幅に揃える */
 #registration-hero .subpage-title h1 {
-  max-width: none;
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
   text-align: left;
+  max-width: 640px;
 }
 
 .hero::before {
