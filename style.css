@@ -73,8 +73,8 @@ a {
 
 /* 中のテキストをindexと同じ幅に揃える */
 #registration-hero .subpage-title h1 {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
+/*  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto; */
   text-align: left;
   max-width: 640px;
 }
