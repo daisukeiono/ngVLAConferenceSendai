@@ -87,10 +87,14 @@ a {
   flex-direction: column;
 }
 
-/* registrationではダークオーバーレイを消す
+/* registrationではダークオーバーレイをつける */
 #venue-hero::before {
-  content: none;
-}*/
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.22);　　/*この数字を変更すると画像が暗くなる*/
+  z-index: 1;
+}
 
 /* ナビとタイトル */
 #venue-hero .nav,
@@ -116,7 +120,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.22);　　/*この数字を変更すると画像が暗くなる*/
+  background: rgba(0, 0, 0, 0.05);　　/*この数字を変更すると画像が暗くなる*/
   z-index: 1;
 }
 
