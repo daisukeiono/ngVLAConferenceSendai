@@ -87,10 +87,10 @@ a {
   flex-direction: column;
 }
 
-/* registrationではダークオーバーレイを消す */
+/* registrationではダークオーバーレイを消す 
 #venue-hero::before {
   content: none;
-}
+}*/
 
 /* ナビとタイトル */
 #venue-hero .nav,
