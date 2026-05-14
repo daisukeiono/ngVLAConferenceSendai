@@ -475,7 +475,7 @@ p {
 
 .speaker-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 18px;
   margin-top: 24px;
 }
@@ -483,7 +483,7 @@ p {
 .speaker-card {
   background: rgba(255,255,255,0.82);
   border-radius: 14px;
-  padding: 18px;
+  padding: 14px;
   box-shadow: 0 12px 34px rgba(20,25,35,0.06);
   border: 1px solid rgba(37,42,50,0.08);
 }
