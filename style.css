@@ -93,7 +93,7 @@ a {
 #registration-hero .subpage-title {
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;              /* ← 通常レイアウトに戻す */
-  padding: 34px 0 46px;
+/*  padding: 34px 0 46px; */
   text-align: left;            /* ← 左寄せ */
   color: white;
 }
@@ -131,7 +131,7 @@ a {
 #program-hero .subpage-title {
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;              /* ← 通常レイアウトに戻す */
-  padding: 34px 0 46px;
+/*  padding: 34px 0 46px; */
   text-align: left;            /* ← 左寄せ */
   color: white;
 }
@@ -173,7 +173,7 @@ a {
 #venue-hero .subpage-title {
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;              /* ← 通常レイアウトに戻す */
-  padding: 34px 0 46px;
+/*  padding: 34px 0 46px;*/
   text-align: left;            /* ← 左寄せ */
   color: white;
 }
@@ -599,7 +599,7 @@ footer {
   }
 
   .hero-content {
-    padding-top: 70px;
+/*    padding-top: 70px; */
   }
 
   .cards {
