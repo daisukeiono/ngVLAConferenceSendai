@@ -67,7 +67,7 @@ a {
 
 /* registration専用ヒーロー */
 #registration-hero {
-  background-image: url("sendai.jpg");
+  background-image: url("sendai_resize.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
