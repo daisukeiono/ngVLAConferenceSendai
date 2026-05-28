@@ -29,12 +29,21 @@ a {
 }
 
 /* Hero */
-.hero {
+/*.hero {
   min-height: 620px;
   position: relative;
   color: #fff;
   background: url("https://raw.githubusercontent.com/daisukeiono/ngVLAConferenceSendai/272e5236b0652fa7bb953421e5971f6601d4c17a/ngVLA-full-1170x600.jpg")
     center / cover no-repeat;
+  overflow: hidden;
+}*/
+
+.hero {
+  min-height: clamp(480px, 72vh, 720px);
+  position: relative;
+  color: #fff;
+  background: url("https://raw.githubusercontent.com/daisukeiono/ngVLAConferenceSendai/272e5236b0652fa7bb953421e5971f6601d4c17a/ngVLA-full-1170x600.jpg")
+    center center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -542,9 +551,9 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero {
+/*  .hero {
     min-height: 660px;
-  }
+  }*/
 
   .nav {
     /*align-items: flex-start;*/
@@ -571,11 +580,11 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .hero {
+/*  .hero {
     min-height: 620px;
     background-position: 58% center;
   }
-
+*/
   .nav,
   .hero-content,
   .section,
