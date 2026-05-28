@@ -71,7 +71,8 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 55vh;
+  /* min-height: 55vh; */
+  min-height: clamp(320px, 48vh, 520px);
 
   display: flex;
   flex-direction: column;
@@ -108,7 +109,8 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 55vh;
+  /* min-height: 55vh; */
+  min-height: clamp(320px, 48vh, 520px);
 
   display: flex;
   flex-direction: column;
@@ -145,7 +147,8 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 55vh;
+  /* min-height: 55vh; */
+  min-height: clamp(320px, 48vh, 520px);
 
   display: flex;
   flex-direction: column;
@@ -289,7 +292,8 @@ h1 {
 .subpage-title {
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;
-  padding: 34px 0 46px;
+  /*padding: 34px 0 46px;*/
+  padding: clamp(24px, 5vh, 46px) 0;
 }
 
 .subpage-title h1 {
