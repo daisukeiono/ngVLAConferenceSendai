@@ -40,7 +40,7 @@ a {
 
 .hero {
 /*  min-height: clamp(480px, 72vh, 720px);*/
-  min-height: clamp(320px, 48vh, 520px);
+  min-height: clamp(360px, 56vh, 620px);
   position: relative;
   color: #fff;
   background: url("https://raw.githubusercontent.com/daisukeiono/ngVLAConferenceSendai/272e5236b0652fa7bb953421e5971f6601d4c17a/ngVLA-full-1170x600.jpg")
@@ -73,7 +73,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   /* min-height: 55vh; */
-  min-height: clamp(320px, 48vh, 520px);
+  min-height: clamp(360px, 56vh, 620px);
 
   display: flex;
   flex-direction: column;
@@ -111,8 +111,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   /* min-height: 55vh; */
-  min-height: clamp(320px, 48vh, 520px);
-
+  min-height: clamp(360px, 56vh, 620px);
   display: flex;
   flex-direction: column;
 }
@@ -149,7 +148,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   /* min-height: 55vh; */
-  min-height: clamp(320px, 48vh, 520px);
+  min-height: clamp(360px, 56vh, 620px);
 
   display: flex;
   flex-direction: column;
@@ -614,8 +613,8 @@ footer {
   .brand {
     font-size: 0.95rem;
   }
-
+/*
   h1 {
     font-size: 3rem;
-  }
+  }*/
 }
