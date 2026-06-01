@@ -66,6 +66,69 @@ a {
   margin-bottom: 8px;
 }
 
+/* payment関係 */
+.payment-page {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.payment-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.payment-card h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.payment-note {
+  margin-bottom: 28px;
+  color: #555;
+}
+
+.payment-card label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.payment-card input,
+.payment-card select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.payment-button {
+  margin-top: 28px;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #1f4e79;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background: #163a5a;
+}
+
+.payment-small {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
 /* registration専用ヒーロー */
 #registration-hero {
   background-image: url("sendai_resize.jpg");

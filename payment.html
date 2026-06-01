@@ -7,35 +7,37 @@
 </head>
 
 <body>
-  <main class="content">
-    <h1>Payment</h1>
+  <main class="payment-page">
+    <section class="payment-card">
+      <h1>Payment</h1>
 
-    <p>Please enter the same email address you used for registration.</p>
+      <p class="payment-note">
+        Please enter the same email address you used for registration.
+      </p>
 
-    <form action="https://test-payment.alpha-note.co.jp/service/credit" method="post" accept-charset="UTF-8">
-      <input type="hidden" name="SiteId" value="22304603">
-      <input type="hidden" name="SitePass" value="cawb2473">
+      <form action="https://test-payment.alpha-note.co.jp/service/credit" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="SiteId" value="22304603">
+        <input type="hidden" name="SitePass" value="cawb2473">
 
-      <label>
-        Email<br>
-        <input type="email" name="mail" required>
-      </label>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="mail" required placeholder="your.email@example.com">
 
-      <br><br>
-
-      <label>
-        Payment category<br>
-        <select name="Amount" required>
+        <label for="amount">Payment category</label>
+        <select id="amount" name="Amount" required>
           <option value="30000">Regular: 30,000 JPY</option>
           <option value="15000">Student: 15,000 JPY</option>
           <option value="5000">Banquet only: 5,000 JPY</option>
         </select>
-      </label>
 
-      <br><br>
+        <button type="submit" class="payment-button">
+          Proceed to Payment
+        </button>
+      </form>
 
-      <input type="submit" value="Proceed to Payment">
-    </form>
+      <p class="payment-small">
+        You will be redirected to the secure payment page.
+      </p>
+    </section>
   </main>
 </body>
 </html>
