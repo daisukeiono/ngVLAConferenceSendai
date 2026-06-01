@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment | ngVLA Conference Sendai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="content">
+    <h1>Payment</h1>
+
+    <p>Please enter the same email address you used for registration.</p>
+
+    <form action="https://test-payment.alpha-note.co.jp/service/credit" method="post" accept-charset="UTF-8">
+      <input type="hidden" name="SiteId" value="22304603">
+      <input type="hidden" name="SitePass" value="cawb2473">
+
+      <label>
+        Email<br>
+        <input type="email" name="mail" required>
+      </label>
+
+      <br><br>
+
+      <label>
+        Payment category<br>
+        <select name="Amount" required>
+          <option value="30000">Regular: 30,000 JPY</option>
+          <option value="15000">Student: 15,000 JPY</option>
+          <option value="5000">Banquet only: 5,000 JPY</option>
+        </select>
+      </label>
+
+      <br><br>
+
+      <input type="submit" value="Proceed to Payment">
+    </form>
+  </main>
+</body>
+</html>
