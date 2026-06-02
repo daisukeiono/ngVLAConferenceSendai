@@ -108,6 +108,12 @@ a {
   background-color: #ffffff;
   color: #1c2733;
   opacity: 1;
+  background: #fff !important;
+  -webkit-appearance: menulist;
+}
+.payment-card select option {
+  background: #fff;
+  color: #000;
 }
 
 .payment-button {
