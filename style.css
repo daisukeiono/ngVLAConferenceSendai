@@ -107,6 +107,7 @@ a {
   font-size: 1rem;
   background-color: #ffffff;
   color: #1c2733;
+  opacity: 1;
 }
 
 .payment-button {
