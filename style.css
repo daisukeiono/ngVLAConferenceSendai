@@ -99,7 +99,8 @@ a {
 
 .payment-card input,
 .payment-card select {
-  width: 100%;
+  width: 650px;
+  max-width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -107,15 +108,15 @@ a {
 }
 
 .payment-button {
-  margin-top: 28px;
+  margin-top: 30px;
   width: 100%;
-  padding: 14px 20px;
+  padding: 18px;
   border: none;
-  border-radius: 999px;
-  background: #1f4e79;
+  border-radius: 12px;
+  background: #0b3d91;
   color: white;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
