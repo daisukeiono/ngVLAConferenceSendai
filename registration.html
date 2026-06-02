@@ -57,6 +57,105 @@
           </a>
         </p>
 
+        <p class="payment-note">
+          Please select the appropriate payment category from the pull-down menu and press "Proceed to Secure Payment".
+        </p>
+
+
+        <form action="https://test-payment.alpha-note.co.jp/service/credit"
+              method="post"
+              accept-charset="UTF-8">
+          <input type="hidden" name="SiteId" value="22304603">
+          <input type="hidden" name="SitePass" value="cawb2473">
+  <!--        <input type="hidden" name="Amount" value="210">
+          <input type="submit">
+        </form>
+  -->
+
+
+          <label for="amount">Payment Category</label>
+          <select id="amount" name="Amount" required>
+            <option value="">Select payment category</option>
+
+            <optgroup label="Registration + Banquet">
+              <option value="32000">Regular (Early) + Banquet: JPY 32,000</option>
+              <option value="37000">Regular + Banquet: JPY 37,000</option>
+              <option value="22000">Early-Career Researcher (Early) + Banquet: JPY 22,000</option>
+              <option value="27000">Early-Career Researcher + Banquet: JPY 27,000</option>
+              <option value="9000">Student + Banquet: JPY 9,000</option>
+            </optgroup>
+
+            <optgroup label="Registration Only">
+              <option value="25000">Regular (Early): JPY 25,000</option>
+              <option value="30000">Regular: JPY 30,000</option>
+              <option value="15000">Early-Career Researcher (Early): JPY 15,000</option>
+              <option value="20000">Early-Career Researcher: JPY 20,000</option>
+              <option value="5000">Student: JPY 5,000</option>
+            </optgroup>
+
+            <optgroup label="Banquet Only">
+              <option value="7000">Banquet Only (Regular): JPY 7,000</option>
+              <option value="4000">Banquet Only (Student): JPY 4,000</option>
+            </optgroup>
+          </select>
+
+          <button type="submit" class="payment-button">
+            Proceed to Secure Payment
+          </button>
+        </form>
+
+        <p class="payment-small">
+          You will be redirected to the secure Alpha Note payment page.
+        </p>
+
+        <hr>
+
+        <h2>Registration Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular (Registration and payment before September 11, 2026)</td>
+            <td>JPY 25,000</td>
+          </tr>
+          <tr>
+            <td>Regular</td>
+            <td>JPY 30,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher* (Registration and payment before September 11, 2026)</td>
+            <td>JPY 15,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher*</td>
+            <td>JPY 20,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 5,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          * Early-career researchers are defined as researchers within six years of receiving their PhD,
+          excluding career interruptions such as parental leave, medical leave, or other exceptional circumstances.
+        </p>
+
+        <h2>Banquet Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular Participant</td>
+            <td>JPY 7,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 4,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          Thanks to financial support for the conference, we are able to offer the banquet at a reasonable cost.
+        </p>
 
 
     </section>
