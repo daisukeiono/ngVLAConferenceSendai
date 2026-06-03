@@ -143,8 +143,7 @@ a {
   margin-top: 20px;
 }
 .payment-action .button {
-  font-size: 1rem;
-  min-height: 50px;
+  margin-top: 4px;
 }
 .payment-select {
   width: 650px;
@@ -370,6 +369,12 @@ a {
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(59, 130, 246, 0.35);
   transition: transform 160ms ease, background 160ms ease;
+  border: none;          /* ←追加 */
+  appearance: none;      /* ←追加 */
+  -webkit-appearance: none; /* ←追加 */
+  font-family: inherit;  /* ←追加 */
+  font-size: inherit;    /* ←追加 */
+  cursor: pointer;       /* ←追加 */
 }
 
 .button:hover {
