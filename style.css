@@ -144,8 +144,6 @@ a {
 }
 .payment-action .button {
   margin-top: 4px;
-  min-width: 180px;
-  justify-content: flex-start;
 }
 .payment-select {
   width: 650px;
