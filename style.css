@@ -362,6 +362,7 @@ a {
   justify-content: center;
   gap: 10px;
   min-height: 50px;
+  min-width: 180px;
   padding: 0 24px;
   border-radius: 7px;
   background: #3b82f6;
