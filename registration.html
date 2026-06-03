@@ -67,14 +67,15 @@
 
         <form action="https://test-payment.alpha-note.co.jp/service/credit"
               method="post"
-              accept-charset="UTF-8">
+              accept-charset="UTF-8"
+              target="_blank">
           <input type="hidden" name="SiteId" value="22304603">
           <input type="hidden" name="SitePass" value="cawb2473">
 
 
 
 
-          <label for="amount">Payment Category</label>
+<!--          <label for="amount">Payment Category</label> -->
           <select id="amount" name="Amount" class="payment-select" required>
             <option value="">Select payment category</option>
 
@@ -101,7 +102,7 @@
           </select>
 
           <button type="submit" class="payment-button">
-            Proceed to Secure Payment
+            Payment →
           </button>
         </form>
 
