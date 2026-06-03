@@ -139,6 +139,21 @@ a {
   color: #666;
 }
 
+.payment-select {
+  width: 650px;
+  max-width: 100%;
+  padding: 16px 18px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(10, 30, 80, 0.08);
+}
+
 .fee-table {
   width: 100%;
   border-collapse: collapse;
