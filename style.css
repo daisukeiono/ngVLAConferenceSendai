@@ -142,7 +142,10 @@ a {
 .payment-action {
   margin-top: 20px;
 }
-
+.payment-action .button {
+  font-size: 1rem;
+  min-height: 50px;
+}
 .payment-select {
   width: 650px;
   max-width: 100%;
