@@ -75,7 +75,7 @@
 
 
 
-<!--          <label for="amount">Payment Category</label> -->
+<!--
           <select id="amount" name="Amount" class="payment-select" required>
             <option value="">Select payment category</option>
 
@@ -107,6 +107,56 @@
             </button>
           </div>
         </form>
+-->
+
+<form id="payment-form"
+      action="https://test-payment.alpha-note.co.jp/service/credit"
+      method="post"
+      accept-charset="UTF-8"
+      target="_blank">
+
+  <input type="hidden" name="SiteId" value="22304603">
+  <input type="hidden" name="SitePass" value="cawb2473">
+  <input type="hidden" name="Amount" id="amount">
+
+  <label>Registration Category</label>
+  <select id="registration-fee" class="payment-select" required>
+    <option value="">Select registration category</option>
+    <option value="25000" data-label="Regular (Early)">Regular (Early): JPY 25,000</option>
+    <option value="30000" data-label="Regular">Regular: JPY 30,000</option>
+    <option value="15000" data-label="Early-Career Researcher (Early)">Early-Career Researcher (Early): JPY 15,000</option>
+    <option value="20000" data-label="Early-Career Researcher">Early-Career Researcher: JPY 20,000</option>
+    <option value="5000" data-label="Student">Student: JPY 5,000</option>
+    <option value="0" data-label="Banquet only">Banquet only / no registration fee</option>
+  </select>
+
+  <label>Participant Banquet</label>
+  <select id="participant-banquet" class="payment-select" required>
+    <option value="0" data-label="No">No</option>
+    <option value="7000" data-label="Regular participant banquet">Yes, Regular participant: JPY 7,000</option>
+    <option value="4000" data-label="Student banquet">Yes, Student: JPY 4,000</option>
+  </select>
+
+  <label>Number of Accompanying Persons for Banquet</label>
+  <select id="accompanying-persons" class="payment-select" required>
+    <option value="0">0</option>
+    <option value="1">1 person</option>
+    <option value="2">2 persons</option>
+    <option value="3">3 persons</option>
+    <option value="4">4 persons</option>
+  </select>
+
+  <p id="payment-total" class="payment-total">
+    Total: JPY 0
+  </p>
+
+  <div class="payment-action">
+    <button type="button" class="button" onclick="confirmPayment()">
+      Payment →
+    </button>
+  </div>
+</form>
+
 
         <p class="payment-small">
           You will be redirected to the secure Alpha Note payment page.
@@ -170,6 +220,65 @@
     ngVLA International Science Conference 2026 · Sendai, Japan · November 10–13, 2026　<br>
     Image generated with AI (ChatGPT / DALL·E)
   </footer>
+
+  <script>
+  const regFee = document.getElementById("registration-fee");
+  const participantBanquet = document.getElementById("participant-banquet");
+  const accompanyingPersons = document.getElementById("accompanying-persons");
+  const amountInput = document.getElementById("amount");
+  const paymentTotal = document.getElementById("payment-total");
+  const paymentForm = document.getElementById("payment-form");
+
+  function calculateTotal() {
+    const registration = Number(regFee.value || 0);
+    const banquet = Number(participantBanquet.value || 0);
+    const guests = Number(accompanyingPersons.value || 0);
+    const guestFee = 7000 * guests;
+
+    const total = registration + banquet + guestFee;
+    amountInput.value = total;
+    paymentTotal.textContent = "Total: JPY " + total.toLocaleString();
+
+    return total;
+  }
+
+  regFee.addEventListener("change", calculateTotal);
+  participantBanquet.addEventListener("change", calculateTotal);
+  accompanyingPersons.addEventListener("change", calculateTotal);
+
+  function confirmPayment() {
+    const total = calculateTotal();
+
+    if (!regFee.value) {
+      alert("Please select a registration category.");
+      return;
+    }
+
+    if (total <= 0) {
+      alert("Please select at least one payment item.");
+      return;
+    }
+
+    const regLabel = regFee.options[regFee.selectedIndex].dataset.label;
+    const banquetLabel = participantBanquet.options[participantBanquet.selectedIndex].dataset.label;
+    const guests = Number(accompanyingPersons.value || 0);
+
+    const message =
+      "Please confirm your payment details:\n\n" +
+      "Registration: " + regLabel + "\n" +
+      "Participant banquet: " + banquetLabel + "\n" +
+      "Accompanying persons: " + guests + "\n\n" +
+      "Total: JPY " + total.toLocaleString() + "\n\n" +
+      "Proceed to payment?";
+
+    if (confirm(message)) {
+      paymentForm.submit();
+    }
+  }
+
+  calculateTotal();
+</script>
+
 </body>
 
 </html>
