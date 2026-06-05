@@ -301,10 +301,38 @@
         return;
       }
 
-      const message =
-        "Please confirm your payment amount:\n\n" +
-        "Total: JPY " + total.toLocaleString() + "\n\n" +
-        "Proceed to payment?";
+      const type = paymentType.value;
+      const registrationAmount = type === "registration" ? Number(regFee.value || 0) : 0;
+      const participantBanquetAmount = type === "registration" ? Number(participantBanquet.value || 0) : 0;
+      const regularGuestCount = Number(regularGuests.value || 0);
+      const studentGuestCount = Number(studentGuests.value || 0);
+      const regularGuestAmount = regularGuestCount * 7000;
+      const studentGuestAmount = studentGuestCount * 4000;
+
+      let message = "Please confirm your payment details:\n\n";
+
+      if (registrationAmount > 0) {
+        message += "Registration fee: JPY " + registrationAmount.toLocaleString() + "\n";
+      }
+
+      if (participantBanquetAmount > 0) {
+        message += "Participant banquet: JPY " + participantBanquetAmount.toLocaleString() + "\n";
+      }
+
+      if (regularGuestCount > 0) {
+        message += "Regular accompanying person(s): " +
+          regularGuestCount + " × JPY 7,000 = JPY " +
+          regularGuestAmount.toLocaleString() + "\n";
+      }
+
+      if (studentGuestCount > 0) {
+        message += "Student accompanying person(s): " +
+          studentGuestCount + " × JPY 4,000 = JPY " +
+          studentGuestAmount.toLocaleString() + "\n";
+      }
+
+      message += "\nTotal: JPY " + total.toLocaleString();
+      message += "\n\nProceed to payment?";
 
       if (confirm(message)) {
         paymentForm.submit();
