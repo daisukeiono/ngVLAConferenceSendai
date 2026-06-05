@@ -138,11 +138,10 @@
       <option value="5000" data-label="Student">Student: JPY 5,000</option>
     </select>
 
-    <label for="participant-banquet">Participant Banquet</label>
+    <label for="participant-banquet">Attending Banquet?</label>
     <select id="participant-banquet" class="payment-select">
-      <option value="0" data-label="No">No</option>
-      <option value="7000" data-label="Regular banquet">Yes, Regular participant: JPY 7,000</option>
-      <option value="4000" data-label="Student banquet">Yes, Student: JPY 4,000</option>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
     </select>
   </div>
 
@@ -267,8 +266,19 @@
 
       if (type === "registration") {
         total += Number(regFee.value || 0);
-        total += Number(participantBanquet.value || 0);
-      }
+          let banquetFee = 0;
+
+            if (participantBanquet.value === "yes") {
+              const regLabel =　regFee.options[regFee.selectedIndex]?.dataset.label || "";
+
+              if (regLabel.includes("Student")) {
+                banquetFee = 4000;
+              } else {
+                banquetFee = 7000;
+              }
+            }
+            total += banquetFee;
+          }
 
       total += Number(regularGuests.value || 0) * 7000;
       total += Number(studentGuests.value || 0) * 4000;
@@ -303,7 +313,16 @@
 
       const type = paymentType.value;
       const registrationAmount = type === "registration" ? Number(regFee.value || 0) : 0;
-      const participantBanquetAmount = type === "registration" ? Number(participantBanquet.value || 0) : 0;
+
+      let participantBanquetAmount = 0;
+      if (type === "registration" &&
+        participantBanquet.value === "yes") {
+          const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
+          participantBanquetAmount = regLabel.includes("Student")
+          ? 4000
+          : 7000;
+        }
+
       const regularGuestCount = Number(regularGuests.value || 0);
       const studentGuestCount = Number(studentGuests.value || 0);
       const regularGuestAmount = regularGuestCount * 7000;
