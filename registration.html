@@ -146,8 +146,11 @@
   </div>
 
   <div id="banquet-section" style="display:none;">
-    <label for="regular-guests">Number of Regular Banquet Participants / Accompanying Persons</label>
-    <select id="regular-guests" class="payment-select">
+    <label for="adult-guests">
+      Number of Accompanying Persons (Age 16 and above)
+    </label>
+
+    <select id="adult-guests" class="payment-select">
       <option value="0">0</option>
       <option value="1">1 person</option>
       <option value="2">2 persons</option>
@@ -156,8 +159,11 @@
       <option value="5">5 persons</option>
     </select>
 
-    <label for="student-guests">Number of Student Banquet Participants / Accompanying Persons</label>
-    <select id="student-guests" class="payment-select">
+    <label for="child-guests">
+      Number of Accompanying Persons (Age 15 and below)
+    </label>
+
+    <select id="child-guests" class="payment-select">
       <option value="0">0</option>
       <option value="1">1 person</option>
       <option value="2">2 persons</option>
@@ -249,8 +255,8 @@
 
     const regFee = document.getElementById("registration-fee");
     const participantBanquet = document.getElementById("participant-banquet");
-    const regularGuests = document.getElementById("regular-guests");
-    const studentGuests = document.getElementById("student-guests");
+    const adultGuests = document.getElementById("adult-guests");
+    const childGuests = document.getElementById("child-guests");
 
     const amountInput = document.getElementById("amount");
     const paymentTotal = document.getElementById("payment-total");
@@ -269,7 +275,7 @@
           let banquetFee = 0;
 
             if (participantBanquet.value === "yes") {
-              const regLabel =　regFee.options[regFee.selectedIndex]?.dataset.label || "";
+              const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
 
               if (regLabel.includes("Student")) {
                 banquetFee = 4000;
@@ -280,8 +286,8 @@
             total += banquetFee;
           }
 
-      total += Number(regularGuests.value || 0) * 7000;
-      total += Number(studentGuests.value || 0) * 4000;
+          total += Number(adultGuests.value || 0) * 7000;
+          total += Number(childGuests.value || 0) * 4000;
 
       amountInput.value = total;
       paymentTotal.textContent = "Total: JPY " + total.toLocaleString();
@@ -289,7 +295,7 @@
       return total;
     }
 
-    [paymentType, regFee, participantBanquet, regularGuests, studentGuests].forEach(el => {
+    [paymentType, regFee, participantBanquet, adultGuests, childGuests].forEach(el => {
       el.addEventListener("change", calculateTotal);
     });
 
@@ -323,10 +329,10 @@
           : 7000;
         }
 
-      const regularGuestCount = Number(regularGuests.value || 0);
-      const studentGuestCount = Number(studentGuests.value || 0);
-      const regularGuestAmount = regularGuestCount * 7000;
-      const studentGuestAmount = studentGuestCount * 4000;
+        const adultGuestCount = Number(adultGuests.value || 0);
+        const childGuestCount = Number(childGuests.value || 0);
+        const adultGuestAmount = adultGuestCount * 7000;
+        const childGuestAmount = childGuestCount * 4000;
 
       let message = "Please confirm your payment details:\n\n";
 
@@ -338,16 +344,16 @@
         message += "Participant banquet: JPY " + participantBanquetAmount.toLocaleString() + "\n";
       }
 
-      if (regularGuestCount > 0) {
-        message += "Regular accompanying person(s): " +
-          regularGuestCount + " × JPY 7,000 = JPY " +
-          regularGuestAmount.toLocaleString() + "\n";
+      if (adultGuestCount > 0) {
+        message += "Accompanying person(s), age 16 and above: " +
+          adultGuestCount + " × JPY 7,000 = JPY " +
+          adultGuestAmount.toLocaleString() + "\n";
       }
 
-      if (studentGuestCount > 0) {
-        message += "Student accompanying person(s): " +
-          studentGuestCount + " × JPY 4,000 = JPY " +
-          studentGuestAmount.toLocaleString() + "\n";
+      if (childGuestCount > 0) {
+        message += "Accompanying person(s), age 15 and below: " +
+          childGuestCount + " × JPY 4,000 = JPY " +
+          childGuestAmount.toLocaleString() + "\n";
       }
 
       message += "\nTotal: JPY " + total.toLocaleString();
