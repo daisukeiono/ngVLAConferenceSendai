@@ -119,54 +119,53 @@
   <input type="hidden" name="SitePass" value="cawb2473">
   <input type="hidden" name="Amount" id="amount">
 
-  <label for="registration-fee">
-  Registration Category
-</label>
-
-  <select id="registration-fee" class="payment-select" required>
-    <option value="">Select registration category</option>
-    <option value="25000" data-label="Regular (Early)">Regular (Early): JPY 25,000</option>
-    <option value="30000" data-label="Regular">Regular: JPY 30,000</option>
-    <option value="15000" data-label="Early-Career Researcher (Early)">Early-Career Researcher (Early): JPY 15,000</option>
-    <option value="20000" data-label="Early-Career Researcher">Early-Career Researcher: JPY 20,000</option>
-    <option value="5000" data-label="Student">Student: JPY 5,000</option>
-    <option value="0" data-label="Banquet only">Banquet only / no registration fee</option>
+  <label for="payment-type">Payment Type</label>
+  <select id="payment-type" class="payment-select" required>
+    <option value="">Select payment type</option>
+    <option value="registration">Registration / Conference Participation</option>
+    <option value="banquet-only">Banquet Only</option>
   </select>
 
-  <label for="participant-banquet">
-    Participant Banquet
-  </label>
-  <select id="participant-banquet" class="payment-select" required>
-    <option value="0" data-label="No">No</option>
-    <option value="7000" data-label="Regular participant banquet">Yes, Regular participant: JPY 7,000</option>
-    <option value="4000" data-label="Student banquet">Yes, Student: JPY 4,000</option>
-  </select>
+  <div id="registration-section" style="display:none;">
+    <label for="registration-fee">Registration Category</label>
+    <select id="registration-fee" class="payment-select">
+      <option value="">Select registration category</option>
+      <option value="25000" data-label="Regular (Early)">Regular (Early): JPY 25,000</option>
+      <option value="30000" data-label="Regular">Regular: JPY 30,000</option>
+      <option value="15000" data-label="Early-Career Researcher (Early)">Early-Career Researcher (Early): JPY 15,000</option>
+      <option value="20000" data-label="Early-Career Researcher">Early-Career Researcher: JPY 20,000</option>
+      <option value="5000" data-label="Student">Student: JPY 5,000</option>
+    </select>
 
-  <label for="accompanying-persons">
-    Number of Accompanying Persons for Banquet
-  </label>
-  <select id="regular-guests" class="payment-select" required>
-    <option value="0">0</option>
-    <option value="1">1 person</option>
-    <option value="2">2 persons</option>
-    <option value="3">3 persons</option>
-    <option value="4">4 persons</option>
-    <option value="5">5 persons</option>
-  </select>
+    <label for="participant-banquet">Participant Banquet</label>
+    <select id="participant-banquet" class="payment-select">
+      <option value="0" data-label="No">No</option>
+      <option value="7000" data-label="Regular banquet">Yes, Regular participant: JPY 7,000</option>
+      <option value="4000" data-label="Student banquet">Yes, Student: JPY 4,000</option>
+    </select>
+  </div>
 
+  <div id="banquet-section" style="display:none;">
+    <label for="regular-guests">Number of Regular Banquet Participants / Accompanying Persons</label>
+    <select id="regular-guests" class="payment-select">
+      <option value="0">0</option>
+      <option value="1">1 person</option>
+      <option value="2">2 persons</option>
+      <option value="3">3 persons</option>
+      <option value="4">4 persons</option>
+      <option value="5">5 persons</option>
+    </select>
 
-  <label for="student-guests">
-    Number of Student Accompanying Persons
-  </label>
-
-  <select id="student-guests" class="payment-select" required>
-    <option value="0">0</option>
-    <option value="1">1 person</option>
-    <option value="2">2 persons</option>
-    <option value="3">3 persons</option>
-    <option value="4">4 persons</option>
-    <option value="5">5 persons</option>
-  </select>
+    <label for="student-guests">Number of Student Banquet Participants / Accompanying Persons</label>
+    <select id="student-guests" class="payment-select">
+      <option value="0">0</option>
+      <option value="1">1 person</option>
+      <option value="2">2 persons</option>
+      <option value="3">3 persons</option>
+      <option value="4">4 persons</option>
+      <option value="5">5 persons</option>
+    </select>
+  </div>
 
   <p id="payment-total" class="payment-total">
     Total: JPY 0
@@ -244,78 +243,75 @@
   </footer>
 
   <script>
-  const regularGuests = document.getElementById("regular-guests");
-  const studentGuests = document.getElementById("student-guests");
+    const paymentType = document.getElementById("payment-type");
+    const registrationSection = document.getElementById("registration-section");
+    const banquetSection = document.getElementById("banquet-section");
 
-  function calculateTotal() {
+    const regFee = document.getElementById("registration-fee");
+    const participantBanquet = document.getElementById("participant-banquet");
+    const regularGuests = document.getElementById("regular-guests");
+    const studentGuests = document.getElementById("student-guests");
 
-    const registration = Number(regFee.value || 0);
-    const banquet = Number(participantBanquet.value || 0);
+    const amountInput = document.getElementById("amount");
+    const paymentTotal = document.getElementById("payment-total");
+    const paymentForm = document.getElementById("payment-form");
 
-    const regularGuestFee =
-        Number(regularGuests.value || 0) * 7000;
+    function calculateTotal() {
+      const type = paymentType.value;
 
-    const studentGuestFee =
-        Number(studentGuests.value || 0) * 4000;
+      registrationSection.style.display = type === "registration" ? "block" : "none";
+      banquetSection.style.display = type ? "block" : "none";
 
-    const total =
-        registration +
-        banquet +
-        regularGuestFee +
-        studentGuestFee;
+      let total = 0;
 
-    amountInput.value = total;
+      if (type === "registration") {
+        total += Number(regFee.value || 0);
+        total += Number(participantBanquet.value || 0);
+      }
 
-    paymentTotal.textContent =
-        "Total: JPY " + total.toLocaleString();
+      total += Number(regularGuests.value || 0) * 7000;
+      total += Number(studentGuests.value || 0) * 4000;
 
-    return total;
-  }
+      amountInput.value = total;
+      paymentTotal.textContent = "Total: JPY " + total.toLocaleString();
 
-  regularGuests.addEventListener("change", calculateTotal);
-  studentGuests.addEventListener("change", calculateTotal);
-
-  function confirmPayment() {
-    const total = calculateTotal();
-    const regularGuestCount =
-    Number(regularGuests.value || 0);
-
-    const studentGuestCount =
-    Number(studentGuests.value || 0);
-
-    if (!regFee.value) {
-      alert("Please select a registration category.");
-      return;
+      return total;
     }
 
-    if (total <= 0) {
-      alert("Please select at least one payment item.");
-      return;
+    [paymentType, regFee, participantBanquet, regularGuests, studentGuests].forEach(el => {
+      el.addEventListener("change", calculateTotal);
+    });
+
+    function confirmPayment() {
+      const total = calculateTotal();
+
+      if (!paymentType.value) {
+        alert("Please select a payment type.");
+        return;
+      }
+
+      if (paymentType.value === "registration" && !regFee.value) {
+        alert("Please select a registration category.");
+        return;
+      }
+
+      if (total <= 0) {
+        alert("Please select at least one payment item.");
+        return;
+      }
+
+      const message =
+        "Please confirm your payment amount:\n\n" +
+        "Total: JPY " + total.toLocaleString() + "\n\n" +
+        "Proceed to payment?";
+
+      if (confirm(message)) {
+        paymentForm.submit();
+      }
     }
 
-    const regLabel = regFee.options[regFee.selectedIndex].dataset.label;
-    const banquetLabel = participantBanquet.options[participantBanquet.selectedIndex].dataset.label;
-    const guests = Number(accompanyingPersons.value || 0);
-
-    const message =
-      "Please confirm your payment details:\n\n" +
-      "Registration: " + regLabel + "\n" +
-      "Participant banquet: " + banquetLabel + "\n" +
-      "Regular accompanying persons: " +
-          regularGuestCount + "\n" +
-      "Student accompanying persons: " +
-          studentGuestCount + "\n\n" +
-      "Total: JPY " +
-          total.toLocaleString() +
-      "\n\nProceed to payment?";
-
-    if (confirm(message)) {
-      paymentForm.submit();
-    }
-  }
-
-  calculateTotal();
-</script>
+    calculateTotal();
+  </script>
 
 </body>
 
