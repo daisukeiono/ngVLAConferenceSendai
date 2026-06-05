@@ -145,12 +145,27 @@
   <label for="accompanying-persons">
     Number of Accompanying Persons for Banquet
   </label>
-  <select id="accompanying-persons" class="payment-select" required>
+  <select id="regular-guests" class="payment-select" required>
     <option value="0">0</option>
     <option value="1">1 person</option>
     <option value="2">2 persons</option>
     <option value="3">3 persons</option>
     <option value="4">4 persons</option>
+    <option value="5">5 persons</option>
+  </select>
+
+
+  <label for="student-guests">
+    Number of Student Accompanying Persons
+  </label>
+
+  <select id="student-guests" class="payment-select" required>
+    <option value="0">0</option>
+    <option value="1">1 person</option>
+    <option value="2">2 persons</option>
+    <option value="3">3 persons</option>
+    <option value="4">4 persons</option>
+    <option value="5">5 persons</option>
   </select>
 
   <p id="payment-total" class="payment-total">
@@ -229,32 +244,44 @@
   </footer>
 
   <script>
-  const regFee = document.getElementById("registration-fee");
-  const participantBanquet = document.getElementById("participant-banquet");
-  const accompanyingPersons = document.getElementById("accompanying-persons");
-  const amountInput = document.getElementById("amount");
-  const paymentTotal = document.getElementById("payment-total");
-  const paymentForm = document.getElementById("payment-form");
+  const regularGuests = document.getElementById("regular-guests");
+  const studentGuests = document.getElementById("student-guests");
 
   function calculateTotal() {
+
     const registration = Number(regFee.value || 0);
     const banquet = Number(participantBanquet.value || 0);
-    const guests = Number(accompanyingPersons.value || 0);
-    const guestFee = 7000 * guests;
 
-    const total = registration + banquet + guestFee;
+    const regularGuestFee =
+        Number(regularGuests.value || 0) * 7000;
+
+    const studentGuestFee =
+        Number(studentGuests.value || 0) * 4000;
+
+    const total =
+        registration +
+        banquet +
+        regularGuestFee +
+        studentGuestFee;
+
     amountInput.value = total;
-    paymentTotal.textContent = "Total: JPY " + total.toLocaleString();
+
+    paymentTotal.textContent =
+        "Total: JPY " + total.toLocaleString();
 
     return total;
   }
 
-  regFee.addEventListener("change", calculateTotal);
-  participantBanquet.addEventListener("change", calculateTotal);
-  accompanyingPersons.addEventListener("change", calculateTotal);
+  regularGuests.addEventListener("change", calculateTotal);
+  studentGuests.addEventListener("change", calculateTotal);
 
   function confirmPayment() {
     const total = calculateTotal();
+    const regularGuestCount =
+    Number(regularGuests.value || 0);
+
+    const studentGuestCount =
+    Number(studentGuests.value || 0);
 
     if (!regFee.value) {
       alert("Please select a registration category.");
@@ -274,9 +301,13 @@
       "Please confirm your payment details:\n\n" +
       "Registration: " + regLabel + "\n" +
       "Participant banquet: " + banquetLabel + "\n" +
-      "Accompanying persons: " + guests + "\n\n" +
-      "Total: JPY " + total.toLocaleString() + "\n\n" +
-      "Proceed to payment?";
+      "Regular accompanying persons: " +
+          regularGuestCount + "\n" +
+      "Student accompanying persons: " +
+          studentGuestCount + "\n\n" +
+      "Total: JPY " +
+          total.toLocaleString() +
+      "\n\nProceed to payment?";
 
     if (confirm(message)) {
       paymentForm.submit();
