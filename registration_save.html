@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration | ngVLA International Science Conference 2026</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+<!--  <header class="subhero"> -->
+    <header class="hero hero-sub" id="registration-hero">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="ngvla_logo.png" alt="ngVLA logo">
+        <span>ngVLA International Science Conference 2026</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="program.html">Program</a>
+        <a class="active" href="registration.html">Registration</a>
+        <a href="venue.html">Venue</a>
+      </div>
+    </nav>
+
+    <div class="subpage-title">
+      <h1>Registration</h1>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="section">
+      <h2>Step 1: Registration</h2>
+      <p>
+        Please register using the Microsoft Forms link below.
+      </p>
+
+      <p>
+        <a class="button" href="https://forms.office.com/r/ujeJTFZ1BA" target="_blank" rel="noopener">
+          Registration →
+        </a>
+      </p>
+    </section>
+
+    <section class="section compact">
+      <h2>Step 2: Payment</h2>
+
+        <!--
+      <p>
+        Please pay the registration/banquet fee at the following link. </p>
+
+        <p>
+          <a class="button" href="payment.html" target="_blank" rel="noopener">
+            Payment →
+          </a>
+        </p>
+    </section>
+-->
+        <p class="payment-note">
+          Please select the appropriate payment category from the pull-down menu and press the "Payment →" button.
+        </p>
+
+
+        <form action="https://test-payment.alpha-note.co.jp/service/credit"
+              method="post"
+              accept-charset="UTF-8"
+              target="_blank">
+          <input type="hidden" name="SiteId" value="22304603">
+          <input type="hidden" name="SitePass" value="cawb2473">
+
+
+
+
+<!--          <label for="amount">Payment Category</label> -->
+          <select id="amount" name="Amount" class="payment-select" required>
+            <option value="">Select payment category</option>
+
+            <optgroup label="Registration + Banquet">
+              <option value="32000">Regular (Early) + Banquet: JPY 32,000</option>
+              <option value="37000">Regular + Banquet: JPY 37,000</option>
+              <option value="22000">Early-Career Researcher (Early) + Banquet: JPY 22,000</option>
+              <option value="27000">Early-Career Researcher + Banquet: JPY 27,000</option>
+              <option value="9000">Student + Banquet: JPY 9,000</option>
+            </optgroup>
+
+            <optgroup label="Registration Only">
+              <option value="25000">Regular (Early): JPY 25,000</option>
+              <option value="30000">Regular: JPY 30,000</option>
+              <option value="15000">Early-Career Researcher (Early): JPY 15,000</option>
+              <option value="20000">Early-Career Researcher: JPY 20,000</option>
+              <option value="5000">Student: JPY 5,000</option>
+            </optgroup>
+
+            <optgroup label="Banquet Only">
+              <option value="7000">Banquet Only (Regular): JPY 7,000</option>
+              <option value="4000">Banquet Only (Student): JPY 4,000</option>
+            </optgroup>
+          </select>
+
+          <div class="payment-action">
+            <button type="submit" class="button">
+              Payment →
+            </button>
+          </div>
+        </form>
+
+        <p class="payment-small">
+          You will be redirected to the secure Alpha Note payment page.
+        </p>
+
+
+
+       <section class="payment-card">
+        <h2>Registration Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular (Registration and payment before September 11, 2026)</td>
+            <td>JPY 25,000</td>
+          </tr>
+          <tr>
+            <td>Regular</td>
+            <td>JPY 30,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher* (Registration and payment before September 11, 2026)</td>
+            <td>JPY 15,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher*</td>
+            <td>JPY 20,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 5,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          * Early-career researchers are defined as researchers within six years of receiving their PhD,
+          excluding career interruptions such as parental leave, medical leave, or other exceptional circumstances.
+        </p>
+
+        <h2>Banquet Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular Participant</td>
+            <td>JPY 7,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 4,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          Thanks to financial support for the conference, we are able to offer the banquet at a reasonable cost.
+        </p>
+
+  </section>
+
+  </main>
+
+  <footer>
+    ngVLA International Science Conference 2026 · Sendai, Japan · November 10–13, 2026　<br>
+    Image generated with AI (ChatGPT / DALL·E)
+  </footer>
+</body>
+
+</html>
