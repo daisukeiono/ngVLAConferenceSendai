@@ -119,7 +119,10 @@
   <input type="hidden" name="SitePass" value="cawb2473">
   <input type="hidden" name="Amount" id="amount">
 
-  <label>Registration Category</label>
+  <label for="registration-fee">
+  Registration Category
+</label>
+
   <select id="registration-fee" class="payment-select" required>
     <option value="">Select registration category</option>
     <option value="25000" data-label="Regular (Early)">Regular (Early): JPY 25,000</option>
@@ -130,14 +133,18 @@
     <option value="0" data-label="Banquet only">Banquet only / no registration fee</option>
   </select>
 
-  <label>Participant Banquet</label>
+  <label for="participant-banquet">
+    Participant Banquet
+  </label>
   <select id="participant-banquet" class="payment-select" required>
     <option value="0" data-label="No">No</option>
     <option value="7000" data-label="Regular participant banquet">Yes, Regular participant: JPY 7,000</option>
     <option value="4000" data-label="Student banquet">Yes, Student: JPY 4,000</option>
   </select>
 
-  <label>Number of Accompanying Persons for Banquet</label>
+  <label for="accompanying-persons">
+    Number of Accompanying Persons for Banquet
+  </label>
   <select id="accompanying-persons" class="payment-select" required>
     <option value="0">0</option>
     <option value="1">1 person</option>
