@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration | ngVLA International Science Conference 2026</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+<!--  <header class="subhero"> -->
+    <header class="hero hero-sub" id="registration-hero">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="ngvla_logo.png" alt="ngVLA logo">
+        <span>ngVLA International Science Conference 2026</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="program.html">Program</a>
+        <a class="active" href="registration.html">Registration</a>
+        <a href="venue.html">Venue</a>
+      </div>
+    </nav>
+
+    <div class="subpage-title">
+      <h1>Registration</h1>
+    </div>
+  </header>
+
+
+  <main>
+
+In preparation.
+
+<!--
+
+    <section class="section">
+      <h2>Step 1: Registration</h2>
+      <p>
+        Please register using the Microsoft Forms link below.
+      </p>
+
+      <p>
+        <a class="button" href="https://forms.office.com/r/ujeJTFZ1BA" target="_blank" rel="noopener">
+          Registration →
+        </a>
+      </p>
+    </section>
+
+    <section class="section compact">
+      <h2>Step 2: Payment</h2>
+
+
+<form id="payment-form"
+      action="https://test-payment.alpha-note.co.jp/service/credit"
+      method="post"
+      accept-charset="UTF-8"
+      target="_blank">
+
+  <input type="hidden" name="SiteId" value="22304603">
+  <input type="hidden" name="SitePass" value="cawb2473">
+  <input type="hidden" name="Amount" id="amount">
+
+
+  <div id="registration-section">
+    <label for="registration-fee">Registration Category</label>
+    <select id="registration-fee" class="payment-select">
+      <option value="">Select registration category</option>
+      <option value="25000" data-label="Regular (Early)">Regular (Early): JPY 25,000</option>
+<!--      <option value="30000" data-label="Regular">Regular: JPY 30,000</option>
+      <option value="15000" data-label="Early-Career Researcher (Early)">Early-Career Researcher (Early): JPY 15,000</option>
+<!--           <option value="20000" data-label="Early-Career Researcher">Early-Career Researcher: JPY 20,000</option> 
+      <option value="5000" data-label="Student">Student: JPY 5,000</option>
+    </select>
+
+    <label for="participant-banquet">Attending Banquet?</label>
+    <select id="participant-banquet" class="payment-select">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+  </div>
+
+
+
+  <div id="banquet-section" style="display:none;">
+    <label for="adult-guests">
+      Number of Accompanying Persons (Age 16 and above:JPY 7,000)
+    </label>
+
+    <select id="adult-guests" class="payment-select">
+      <option value="0">0</option>
+      <option value="1">1 person</option>
+      <option value="2">2 persons</option>
+      <option value="3">3 persons</option>
+      <option value="4">4 persons</option>
+      <option value="5">5 persons</option>
+    </select>
+
+    <label for="child-guests">
+      Number of Accompanying Persons (Age 15 and below:JPY 4,000)
+    </label>
+
+    <select id="child-guests" class="payment-select">
+      <option value="0">0</option>
+      <option value="1">1 person</option>
+      <option value="2">2 persons</option>
+      <option value="3">3 persons</option>
+      <option value="4">4 persons</option>
+      <option value="5">5 persons</option>
+    </select>
+  </div>
+
+  <p id="payment-total" class="payment-total">
+    Total: JPY 0
+  </p>
+
+  <div class="payment-action">
+    <button type="button" class="button" onclick="confirmPayment()">
+      Payment →
+    </button>
+  </div>
+</form>
+
+
+        <p class="payment-small">
+          You will be redirected to the secure Alpha Note payment page.
+        </p>
+
+-->
+
+       <section class="payment-card">
+        <h2>Registration Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular (Registration and payment before September 11, 2026)</td>
+            <td>JPY 25,000</td>
+          </tr>
+          <tr>
+            <td>Regular</td>
+            <td>JPY 30,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher* (Registration and payment before September 11, 2026)</td>
+            <td>JPY 15,000</td>
+          </tr>
+          <tr>
+            <td>Early-Career Researcher*</td>
+            <td>JPY 20,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 5,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          * Early-career researchers are defined as researchers within six years of receiving their PhD,
+          excluding career interruptions such as parental leave, medical leave, or other exceptional circumstances.
+        </p>
+
+        <h2>Banquet Fee</h2>
+
+        <table class="fee-table">
+          <tr>
+            <td>Regular Participant</td>
+            <td>JPY 7,000</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>JPY 4,000</td>
+          </tr>
+        </table>
+
+        <p class="lead">
+          Thanks to financial support for the conference, we are able to offer the banquet at a reasonable cost.
+        </p>
+
+  </section>
+
+  </main>
+
+  <footer>
+    ngVLA International Science Conference 2026 · Sendai, Japan · November 10–13, 2026　<br>
+    Image generated with AI (ChatGPT / DALL·E)
+  </footer>
+
+  <script>
+
+
+
+    const registrationSection = document.getElementById("registration-section");
+    const banquetSection = document.getElementById("banquet-section");
+    const regFee = document.getElementById("registration-fee");
+    const participantBanquet = document.getElementById("participant-banquet");
+    const adultGuests = document.getElementById("adult-guests");
+    const childGuests = document.getElementById("child-guests");
+
+    const amountInput = document.getElementById("amount");
+    const paymentTotal = document.getElementById("payment-total");
+    const paymentForm = document.getElementById("payment-form");
+
+    function calculateTotal() {
+
+      banquetSection.style.display =
+        participantBanquet.value === "yes"
+          ? "block"
+          : "none";
+
+      let total = Number(regFee.value || 0);
+
+      if (participantBanquet.value === "yes") {
+        const regLabel =
+          regFee.options[regFee.selectedIndex]?.dataset.label || "";
+
+        if (regLabel.includes("Student")) {
+          total += 4000;
+        } else {
+          total += 7000;
+        }
+      }
+
+      total += Number(adultGuests.value || 0) * 7000;
+      total += Number(childGuests.value || 0) * 4000;
+
+      amountInput.value = total;
+      paymentTotal.textContent =
+        "Total: JPY " + total.toLocaleString();
+
+      return total;
+    }
+
+
+
+    [regFee, participantBanquet, adultGuests, childGuests].forEach(el => {
+      el.addEventListener("change", calculateTotal);
+    });
+
+    function confirmPayment() {
+      const total = calculateTotal();
+
+
+      if (!regFee.value) {
+        alert("Please select a registration category.");
+        return;
+      }
+
+
+      if (total <= 0) {
+        alert("Please select at least one payment item.");
+        return;
+      }
+
+      const registrationAmount = Number(regFee.value || 0);
+
+      let participantBanquetAmount = 0;
+      if (participantBanquet.value === "yes") {
+        const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
+        participantBanquetAmount = regLabel.includes("Student") ? 4000 : 7000;
+      }
+
+        const adultGuestCount = Number(adultGuests.value || 0);
+        const childGuestCount = Number(childGuests.value || 0);
+        const adultGuestAmount = adultGuestCount * 7000;
+        const childGuestAmount = childGuestCount * 4000;
+
+      let message = "Please confirm your payment details:\n\n";
+
+      if (registrationAmount > 0) {
+        message += "Registration fee: JPY " + registrationAmount.toLocaleString() + "\n";
+      }
+
+      if (participantBanquetAmount > 0) {
+        message += "Participant banquet: JPY " + participantBanquetAmount.toLocaleString() + "\n";
+      }
+
+
+      if (adultGuestCount > 0) {
+        message += "Accompanying person(s), age 16 and above: " +
+          adultGuestCount + " × JPY 7,000 = JPY " +
+          adultGuestAmount.toLocaleString() + "\n";
+      }
+
+      if (childGuestCount > 0) {
+        message += "Accompanying person(s), age 15 and below: " +
+          childGuestCount + " × JPY 4,000 = JPY " +
+          childGuestAmount.toLocaleString() + "\n";
+      }
+
+      message += "\nTotal: JPY " + total.toLocaleString();
+      message += "\n\nProceed to payment?";
+
+      if (confirm(message)) {
+        paymentForm.submit();
+      }
+    }
+
+    calculateTotal();
+  </script>
+
+</body>
+
+</html>
