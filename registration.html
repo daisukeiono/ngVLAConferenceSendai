@@ -120,14 +120,16 @@
   <input type="hidden" name="SitePass" value="cawb2473">
   <input type="hidden" name="Amount" id="amount">
 
+<!--
   <label for="payment-type">Payment Type</label>
   <select id="payment-type" class="payment-select" required>
     <option value="">Select payment type</option>
     <option value="registration">Registration / Conference Participation</option>
     <option value="banquet-only">Banquet Only</option>
   </select>
+-->
 
-  <div id="registration-section" style="display:none;">
+  <div id="registration-section">
     <label for="registration-fee">Registration Category</label>
     <select id="registration-fee" class="payment-select">
       <option value="">Select registration category</option>
@@ -145,6 +147,7 @@
     </select>
   </div>
 
+<!--
   <div id="banquet-only-section" style="display:none;">
     <label for="banquet-only-type">Banquet Participant Type</label>
     <select id="banquet-only-type" class="payment-select">
@@ -153,6 +156,7 @@
       <option value="student">Student: JPY 4,000</option>
     </select>
   </div>
+-->
 
   <div id="banquet-section" style="display:none;">
     <label for="adult-guests">
@@ -258,14 +262,13 @@
   </footer>
 
   <script>
-    const paymentType = document.getElementById("payment-type");
+
+
+
     const registrationSection = document.getElementById("registration-section");
     const banquetSection = document.getElementById("banquet-section");
-    const banquetOnlySection = document.getElementById("banquet-only-section");
-
     const regFee = document.getElementById("registration-fee");
     const participantBanquet = document.getElementById("participant-banquet");
-    const banquetOnlyType = document.getElementById("banquet-only-type");
     const adultGuests = document.getElementById("adult-guests");
     const childGuests = document.getElementById("child-guests");
 
@@ -274,100 +277,63 @@
     const paymentForm = document.getElementById("payment-form");
 
     function calculateTotal() {
-      const type = paymentType.value;
 
-      registrationSection.style.display = type === "registration" ? "block" : "none";
-      banquetOnlySection.style.display = type === "banquet-only" ? "block" : "none";
       banquetSection.style.display =
-        (type === "registration" && participantBanquet.value === "yes") ||
-        type === "banquet-only"
+        participantBanquet.value === "yes"
           ? "block"
           : "none";
 
-      let total = 0;
+      let total = Number(regFee.value || 0);
 
-      if (type === "registration") {
-        total += Number(regFee.value || 0);
-          let banquetFee = 0;
+      if (participantBanquet.value === "yes") {
+        const regLabel =
+          regFee.options[regFee.selectedIndex]?.dataset.label || "";
 
-            if (participantBanquet.value === "yes") {
-              const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
+        if (regLabel.includes("Student")) {
+          total += 4000;
+        } else {
+          total += 7000;
+        }
+      }
 
-              if (regLabel.includes("Student")) {
-                banquetFee = 4000;
-              } else {
-                banquetFee = 7000;
-              }
-            }
-            total += banquetFee;
-          }
-
-          if (type === "banquet-only") {
-            if (banquetOnlyType.value === "regular") {
-              total += 7000;
-            } else if (banquetOnlyType.value === "student") {
-              total += 4000;
-            }
-          }
-
-          total += Number(adultGuests.value || 0) * 7000;
-          total += Number(childGuests.value || 0) * 4000;
+      total += Number(adultGuests.value || 0) * 7000;
+      total += Number(childGuests.value || 0) * 4000;
 
       amountInput.value = total;
-      paymentTotal.textContent = "Total: JPY " + total.toLocaleString();
+      paymentTotal.textContent =
+        "Total: JPY " + total.toLocaleString();
 
       return total;
     }
 
 
 
-    [paymentType, regFee, participantBanquet, banquetOnlyType, adultGuests, childGuests].forEach(el => {
+    [regFee, participantBanquet, adultGuests, childGuests].forEach(el => {
       el.addEventListener("change", calculateTotal);
     });
 
     function confirmPayment() {
       const total = calculateTotal();
 
-      if (!paymentType.value) {
-        alert("Please select a payment type.");
-        return;
-      }
 
-      if (paymentType.value === "registration" && !regFee.value) {
+      if (!regFee.value) {
         alert("Please select a registration category.");
         return;
       }
 
-      if (paymentType.value === "banquet-only" && !banquetOnlyType.value) {
-        alert("Please select a banquet participant type.");
-        return;
-      }
 
       if (total <= 0) {
         alert("Please select at least one payment item.");
         return;
       }
 
-      const type = paymentType.value;
-      const registrationAmount = type === "registration" ? Number(regFee.value || 0) : 0;
+      const registrationAmount = Number(regFee.value || 0);
 
       let participantBanquetAmount = 0;
-      if (type === "registration" &&
-        participantBanquet.value === "yes") {
-          const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
-          participantBanquetAmount = regLabel.includes("Student")
-          ? 4000
-          : 7000;
-        }
-
-        let banquetOnlyAmount = 0;
-        if (type === "banquet-only") {
-          if (banquetOnlyType.value === "regular") {
-            banquetOnlyAmount = 7000;
-          } else if (banquetOnlyType.value === "student") {
-            banquetOnlyAmount = 4000;
-          }
-        }
+      if (participantBanquet.value === "yes") {
+        const regLabel = regFee.options[regFee.selectedIndex]?.dataset.label || "";
+        participantBanquetAmount = regLabel.includes("Student") ? 4000 : 7000;
+      }
 
         const adultGuestCount = Number(adultGuests.value || 0);
         const childGuestCount = Number(childGuests.value || 0);
@@ -384,9 +350,6 @@
         message += "Participant banquet: JPY " + participantBanquetAmount.toLocaleString() + "\n";
       }
 
-      if (banquetOnlyAmount > 0) {
-        message += "Banquet only participant: JPY " + banquetOnlyAmount.toLocaleString() + "\n";
-      }
 
       if (adultGuestCount > 0) {
         message += "Accompanying person(s), age 16 and above: " +
