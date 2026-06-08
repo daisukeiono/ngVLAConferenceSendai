@@ -108,26 +108,24 @@
             </button>
           </div>
         </form>
--->
+
 
 <form id="payment-form"
       action="https://test-payment.alpha-note.co.jp/service/credit"
       method="post"
       accept-charset="UTF-8"
       target="_blank">
-
-  <input type="hidden" name="SiteId" value="22304603">
-  <input type="hidden" name="SitePass" value="cawb2473">
-  <input type="hidden" name="Amount" id="amount">
-
-<!--
-  <label for="payment-type">Payment Type</label>
-  <select id="payment-type" class="payment-select" required>
-    <option value="">Select payment type</option>
-    <option value="registration">Registration / Conference Participation</option>
-    <option value="banquet-only">Banquet Only</option>
-  </select>
 -->
+
+  <form id="payment-form"
+      action="https://payment.alpha-note.co.jp/service/credit"
+      method="post"
+      accept-charset="UTF-8"
+      target="_blank">
+
+      <input type="hidden" name="SiteId" value="22304603">
+      <input type="hidden" name="SitePass" value="cawb2473">
+      <input type="hidden" name="Amount" id="amount">
 
   <div id="registration-section">
     <label for="registration-fee">Registration Category</label>
@@ -143,7 +141,7 @@
     <label for="participant-banquet">Attending Banquet?</label>
     <select id="participant-banquet" class="payment-select">
       <option value="no">No</option>
-      <option value="yes">Yes</option>
+      <option value="yes" selected>Yes</option>
     </select>
   </div>
 
