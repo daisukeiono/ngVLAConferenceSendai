@@ -43,7 +43,7 @@ a {
   min-height: clamp(360px, 56vh, 620px);
   position: relative;
   color: #fff;
-  background: url("https://raw.githubusercontent.com/daisukeiono/ngVLAConferenceSendai/272e5236b0652fa7bb953421e5971f6601d4c17a/ngVLA-full-1170x600.jpg")
+  background: url("ngVLA-full-1170x600.jpg")
     center center / cover no-repeat;
   overflow: hidden;
 }
