@@ -177,6 +177,20 @@ form label {
   margin-bottom: 4px;
 }
 
+.section p a,
+.section li a {
+  color: #0b3d91;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #0b3d91;
+}
+
+.section p a:hover,
+.section li a:hover {
+  color: #072c6b;
+  border-bottom-color: #072c6b;
+}
+
 .fee-table {
   width: 100%;
   border-collapse: collapse;
