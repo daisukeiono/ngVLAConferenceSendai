@@ -177,15 +177,15 @@ form label {
   margin-bottom: 4px;
 }
 
-.section p a,
-.section li a {
+.section p a:not(.button),
+.section li a:not(.button) {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
 }
 
-.section p a:hover,
-.section li a:hover {
+.section p a:not(.button):hover,
+.section li a:not(.button):hover {
   color: var(--accent-dark);
 }
 
