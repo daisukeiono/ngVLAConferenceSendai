@@ -675,6 +675,9 @@ p {
 
 .speaker-card p {
   margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
   color: var(--muted);
 }
 
