@@ -663,22 +663,20 @@ p {
 .speaker-card {
   background: rgba(255,255,255,0.82);
   border-radius: 14px;
-  padding: 10px;
+  padding: 18px 20px;
   box-shadow: 0 12px 34px rgba(20,25,35,0.06);
   border: 1px solid rgba(37,42,50,0.08);
+  min-height: 110px;
 }
 
 .speaker-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
+  margin: 0 0 10px;
 }
 
 .speaker-card p {
   margin: 0;
   font-size: 0.88rem;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  color: var(--muted);
+  line-height: 1.4;
 }
 
 @media (max-width: 560px) {
